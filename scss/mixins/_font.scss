@@ -1,0 +1,29 @@
+@use "scss/abstracts/fonts" as *;
+
+@mixin get-the-font($type, $weight) {
+  $str-weight: "#{$weight}";
+  $font: map-get($fonts, $type);
+  $weights: map-get($font, weights);
+  $i-index: str-index($str-weight, "i"); // if italic (i.e., 400i, 700i, etc...)
+
+  @if (index($weights, $weight) == null) {
+    @error "Font weight does not exist. List of valid font-weights #{$weights}";
+  }
+
+  @if ($i-index != null) {
+    font-weight: unquote(str-slice($str-weight, 0, $i-index - 1));
+    font-style: italic;
+  } @else {
+    font-weight: $weight;
+  }
+
+  font-family: map-get($font, name), $type;
+}
+
+@mixin sans-serif($weight: 400) {
+  @include get-the-font(sans-serif, $weight);
+}
+
+@mixin monospace($weight: 400) {
+  @include get-the-font(monospace, $weight);
+}

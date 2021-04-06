@@ -1,0 +1,31 @@
+$light: #fff;
+$dark: #000;
+
+// palette
+$alto: #d3d3d3;
+$hippie-blue: #669bbc;
+$thunderbird: #c1121f;
+$half-colonial-white: #fdf0d5;
+$swamp: #000e16;
+$black-pearl: #041923;
+
+$themes: (
+  // globals
+  text: $hippie-blue,
+  text--em: $thunderbird,
+  cta: $half-colonial-white,
+  // components specific
+  nav-bg: $half-colonial-white,
+  nav-bg--shadow:
+    linear-gradient(
+      180deg,
+      $swamp 0%,
+      rgba(0, 14, 22, 0.453125) 53.12%,
+      rgba(0, 14, 22, 0) 100%
+    ),
+  hero-bg: $swamp,
+  works-bg: $black-pearl,
+  about-bg: $swamp,
+  contact-bg: $dark,
+  footer-bg: $dark
+);

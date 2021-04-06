@@ -1,0 +1,12 @@
+@use "scss/functions/theme" as *;
+@use "scss/mixins/font" as *;
+
+.hello {
+  $bg: blue;
+  $fg: white;
+
+  background-color: theme(hero-bg);
+  color: $fg;
+
+  @include sans-serif;
+}

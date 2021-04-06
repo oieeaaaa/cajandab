@@ -1,0 +1,5 @@
+@use "scss/abstracts/themes" as *;
+
+@function theme($theme) {
+  @return map-get($themes, $theme);
+}
