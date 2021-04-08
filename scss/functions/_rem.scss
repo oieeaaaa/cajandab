@@ -1,0 +1,3 @@
+@function rem($value) {
+  @return #{$value / 10}rem; // 10 is the value of html's font-size
+}

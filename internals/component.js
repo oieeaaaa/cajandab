@@ -9,7 +9,7 @@ function createComponent(name) {
 
   const componentPath = path.resolve(__dirname, "../", "components", name);
   const jsPath = path.resolve(componentPath, `${name}.js`);
-  const scssPath = path.resolve(componentPath, `${name}.scss`);
+  const scssPath = path.resolve(componentPath, `${name}.module.scss`);
 
   if (fs.existsSync(componentPath)) return; // component exists do nothing
 

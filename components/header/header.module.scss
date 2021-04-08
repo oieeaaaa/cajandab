@@ -1,0 +1,208 @@
+@use "scss/functions/theme" as *;
+@use "scss/functions/rem" as *;
+@use "scss/mixins/font";
+@use "scss/mixins/breakpoint" as *;
+@forward "scss/abstracts/animations";
+
+.header {
+  $this: &;
+
+  padding-top: rem(30);
+
+  @include breakpoint(mobile, upto, tablet_landscape) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include breakpoint(tablet_landscape) {
+    padding-top: rem(50);
+  }
+
+  &_brand {
+    @include font.monospace;
+    @include font.size(16 20.96 -0.05);
+
+    color: theme(cta);
+
+    @include breakpoint(tablet_landscape) {
+      @include font.size(30 39.3);
+
+      grid-column: 2 / span 4;
+    }
+
+    &___em {
+      color: theme(text--em);
+      font-style: normal;
+    }
+  }
+
+  &_toggler {
+    position: relative;
+    width: rem(33);
+    transition: transform 0.25s ease;
+    outline: none;
+
+    @include breakpoint(tablet_landscape) {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: rem(5);
+      background-color: theme(cta);
+      transition: transform 1s ease;
+      transition-delay: 0.25s;
+    }
+
+    &::before {
+      margin-bottom: rem(5);
+    }
+
+    #{$this}___active & {
+      transform: translateX(rem(-80));
+
+      &::before {
+        animation-name: morph-to-x;
+        animation-duration: 500ms;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+      }
+
+      &::after {
+        animation-name: morph-to-x--reverse;
+        animation-duration: 500ms;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  &_list {
+    @include breakpoint(mobile, upto, tablet_landscape) {
+      display: inline-block;
+      position: fixed;
+      top: rem(-68);
+      right: rem(-100);
+      width: rem(200);
+      height: rem(200);
+      border-radius: rem(100);
+      user-select: none;
+      pointer-events: none;
+      transition: transform 0.25s ease;
+      transform: scale(0);
+      background-color: theme(cta);
+    }
+
+    @include breakpoint(tablet_landscape) {
+      transform: unset !important;
+      display: flex;
+      align-items: center;
+    }
+
+    &_container {
+      @include breakpoint(tablet_landscape) {
+        justify-self: end;
+        align-self: center;
+        grid-column: 12 / -2;
+        position: relative;
+      }
+    }
+
+    #{$this}___active & {
+      pointer-events: unset;
+      user-select: unset;
+    }
+
+    &__item {
+      @include breakpoint(mobile, upto, tablet_landscape) {
+        position: absolute;
+        top: rem(100);
+        right: rem(100);
+        display: flex;
+        align-items: center;
+        color: theme(nav-item--mobile);
+        transform-origin: center right;
+        text-align: right;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: rem(30);
+          height: rem(1);
+          margin-left: rem(10);
+          background-color: theme(nav-item--mobile);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(-90deg);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(1px) rotate(-180deg);
+        }
+
+        &:last-child {
+          transform: translateX(1px) rotate(90deg);
+        }
+
+        &_button {
+          @include font.size(14 18.34);
+        }
+      }
+
+      @include breakpoint(tablet_landscape) {
+        &:not(:last-child) {
+          margin-right: rem(40);
+        }
+
+        &:first-child::before {
+          content: "<";
+        }
+
+        &:last-child::after {
+          content: "/>";
+        }
+
+        &:first-child::before,
+        &:last-child::after {
+          @include font.monospace;
+          @include font.size(24 31.44 -0.05em);
+
+          color: theme(cta);
+        }
+
+        &_button {
+          @include font.size(24 31.44 -0.05em);
+
+          color: theme(cta);
+        }
+      }
+
+      &_button {
+        @include font.monospace;
+      }
+    }
+
+    &__obedient_underline {
+      display: none;
+
+      @include breakpoint(tablet_landscape) {
+        display: inline-block;
+        position: absolute;
+        bottom: rem(-8);
+        height: rem(5);
+        background-color: theme(text--em);
+        transition: 0.25s ease;
+        transition-property: transform, left;
+        transform: scale(0);
+
+        &___active {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}

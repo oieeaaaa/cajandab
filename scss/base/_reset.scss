@@ -1,3 +1,6 @@
+@use "scss/functions/theme" as *;
+@use "scss/mixins/breakpoint" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -12,4 +15,19 @@ body {
   font-size: 1.6rem;
   font-family: "Fira Sans", sans-serif;
   letter-spacing: -0.05em;
+  background-color: theme(body-bg);
+}
+
+button {
+  background: none;
+  border: none;
+
+  @include breakpoint(tablet_landscape) {
+    cursor: pointer;
+  }
+}
+
+ul,
+ol {
+  list-style-type: none;
 }

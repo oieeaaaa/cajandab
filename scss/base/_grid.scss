@@ -1,0 +1,21 @@
+@use "scss/abstracts/grid-settings" as *;
+@use "scss/mixins/breakpoint" as *;
+
+$mobile: map-get($grid-settings, mobile);
+$desktop: map-get($grid-settings, desktop);
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(map-get($mobile, columns), 1fr);
+  padding-left: map-get($mobile, margin);
+  padding-right: map-get($mobile, margin);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+
+  @include breakpoint(tablet_landscape) {
+    grid-template-columns: repeat(map-get($desktop, columns), 1fr);
+    padding-left: map-get($desktop, margin);
+    padding-right: map-get($desktop, margin);
+  }
+}

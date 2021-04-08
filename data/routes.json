@@ -1,0 +1,20 @@
+{
+  "nav": [
+    {
+      "label": "Home",
+      "selector": "#hero"
+    },
+    {
+      "label": "Works",
+      "selector": "#works"
+    },
+    {
+      "label": "About",
+      "selector": "#about"
+    },
+    {
+      "label": "Contact",
+      "selector": "#contact"
+    }
+  ]
+}

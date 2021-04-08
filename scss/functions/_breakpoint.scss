@@ -1,0 +1,9 @@
+@function validate-minmax($min-width, $max-width) {
+  @if ($max-width == null or $min-width == null) {
+    @error "$min-width or $max-width is missing.";
+  } @else if ($min-width > $max-width) {
+    @error "At least make the max-width higher than the min-width.";
+  } @else {
+    @return true;
+  }
+}

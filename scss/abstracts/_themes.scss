@@ -11,10 +11,13 @@ $black-pearl: #041923;
 
 $themes: (
   // globals
-  text: $hippie-blue,
+  text: $alto,
   text--em: $thunderbird,
   cta: $half-colonial-white,
-  // components specific
+  body-bg: $swamp,
+  // nav
+  nav-item--mobile: $swamp,
+  nav-item--active: $thunderbird,
   nav-bg: $half-colonial-white,
   nav-bg--shadow:
     linear-gradient(
@@ -23,9 +26,14 @@ $themes: (
       rgba(0, 14, 22, 0.453125) 53.12%,
       rgba(0, 14, 22, 0) 100%
     ),
+  // hero
   hero-bg: $swamp,
+  // works
   works-bg: $black-pearl,
+  // about
   about-bg: $swamp,
+  // contact
   contact-bg: $dark,
+  // footer
   footer-bg: $dark
 );

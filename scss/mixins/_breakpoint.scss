@@ -1,0 +1,41 @@
+@use 'scss/functions/breakpoint' as *;
+@use 'scss/abstracts/breakpoints' as *;
+@use 'scss/abstracts/grid-settings';
+
+@mixin breakpoint($device, $constraint: "", $limit: null) {
+  $breakpoint-keys: map-keys($breakpoints);
+  $device-index: index($breakpoint-keys, $device);
+  $min-width: map-get($breakpoints, nth($breakpoint-keys, $device-index));
+
+  @if (quote($constraint) == "only") {
+    // settings
+    $max-width: null;
+
+    // handle fallback value for max-width
+    @if ($device-index + 1 < length($breakpoint-keys)) {
+      $max-width: map-get(
+        $breakpoints,
+        nth($breakpoint-keys, $device-index + 1)
+      );
+    } @else {
+      $max-width: grid-settings.$max-width; // fallback value is the grid's max-width
+    }
+
+    // contain the content between the selected device and the next device
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  } @else if (quote($constraint) == "upto") {
+    $max-width: map-get($breakpoints, $limit);
+
+    @if (validate-minmax($min-width, $max-width)) {
+      @media screen and (min-width: $min-width) and (max-width: $max-width) {
+        @content;
+      }
+    }
+  } @else {
+    @media screen and (min-width: $min-width) {
+      @content;
+    }
+  }
+}
