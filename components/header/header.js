@@ -1,12 +1,23 @@
-import { useState, useRef, useEffect } from "react";
+import { useCallback, useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import debounce from "lodash.debounce";
 import breakpoint, { breakpoints } from "js/utils/breakpoint";
-import routes from "data/routes.json";
 import styles from "./header.module.scss";
 
-const Header = () => {
+const Header = ({ nav }) => {
   // states
 
   const [isNavActive, setIsNavActive] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // callbacks
+
+  const scrollTimeout = useCallback(() =>
+    setTimeout(() => {
+      setIsScrolled(true);
+      setIsNavActive(false);
+    }, 3000)
+  );
 
   // refs
 
@@ -16,17 +27,6 @@ const Header = () => {
   // functions
 
   const toggleNav = () => setIsNavActive(!isNavActive);
-
-  const onScrollToView = (selector) => {
-    const view = document.querySelector(selector);
-
-    if (!view) return false;
-
-    view.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
   const moveNavItemUnderline = (e) => {
     if (
@@ -58,6 +58,20 @@ const Header = () => {
       navItemUnderline.style.width = null;
       navItemUnderline.style.left = null;
     }, 100);
+  };
+
+  const classes = () => {
+    let newClasses = [styles.header];
+
+    if (isNavActive) {
+      newClasses = newClasses.concat(styles.header___active);
+    }
+
+    if (isScrolled) {
+      newClasses = newClasses.concat(styles.header___scrolled);
+    }
+
+    return newClasses.join(" ");
   };
 
   // effects
@@ -115,13 +129,31 @@ const Header = () => {
     }
   }, [navRef, isNavActive]);
 
+  // for scroll events
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+
+    window.addEventListener(
+      "scroll",
+      debounce(() => {
+        clearTimeout(scrollTimeout);
+
+        if (
+          prevScrollY < window.scrollY &&
+          window.scrollY >= window.innerHeight
+        ) {
+          scrollTimeout();
+        } else {
+          setIsScrolled(false);
+        }
+
+        prevScrollY = window.scrollY;
+      }, 100)
+    );
+  }, []);
+
   return (
-    <header
-      className={`${styles.header} ${
-        isNavActive ? styles.header___active : ""
-      }`}
-      onMouseLeave={hideNavItemUnderline}
-    >
+    <header className={classes()} onMouseLeave={hideNavItemUnderline}>
       <div className={`${styles.header_container} grid`}>
         <p className={styles.header_brand}>
           <em className={styles.header_brand___em}>c</em>.joimee
@@ -131,16 +163,16 @@ const Header = () => {
         <button onClick={toggleNav} className={styles.header_toggler} />
         <div className={styles.header_list_container}>
           <ul ref={navRef} className={styles.header_list}>
-            {routes.nav.map(({ label, selector }) => (
-              <li className={styles.header_list__item} key={selector}>
-                <button
-                  className={styles.header_list__item_button}
-                  onClick={() => onScrollToView(selector)}
-                  onMouseOver={moveNavItemUnderline}
-                  type="button"
-                >
-                  {label}
-                </button>
+            {nav.map(({ label, href }) => (
+              <li className={styles.header_list__item} key={href}>
+                <Link href={href}>
+                  <a
+                    onMouseOver={moveNavItemUnderline}
+                    className={styles.header_list__item_button}
+                  >
+                    {label}
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>

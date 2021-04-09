@@ -2,19 +2,19 @@
   "nav": [
     {
       "label": "Home",
-      "selector": "#hero"
+      "href": "#"
     },
     {
       "label": "Works",
-      "selector": "#works"
+      "href": "#works"
     },
     {
       "label": "About",
-      "selector": "#about"
+      "href": "#about"
     },
     {
       "label": "Contact",
-      "selector": "#contact"
+      "href": "#contact"
     }
   ]
 }

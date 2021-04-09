@@ -9,6 +9,13 @@
   width: 100%;
   padding-top: rem(30);
   z-index: $z-header;
+  background: theme(nav-bg--shadow);
+  transition: transform 250ms ease;
+  transform: translateY(0);
+
+  &___scrolled {
+    transform: translateY(-100%);
+  }
 
   @include breakpoint(tablet_landscape) {
     padding-top: rem(50);
