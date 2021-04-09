@@ -10,8 +10,7 @@ const Hero = () => {
       <div className={`${styles.hero_grid} grid`}>
         <div className={styles.hero_decoration}>
           <p className={styles.hero_decoration__text}>
-            initialize
-            <span className={styles.hero_decoration__text___em}>()</span>;
+            initialize<em>()</em>;
           </p>
           <button className={styles.hero_decoration__scroll_down}>
             Scroll down

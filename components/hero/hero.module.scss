@@ -1,6 +1,9 @@
 @use 'scss/main' as *;
 
 .hero {
+  background: theme(hero-bg);
+  background-repeat: no-repeat;
+
   &_grid {
     padding-top: rem(267);
     height: 100vh;
@@ -58,11 +61,9 @@
     }
 
     &::after {
+      @include line-decoration;
+
       content: "";
-      display: inline-block;
-      width: rem(1);
-      height: 100%;
-      background-color: theme(decoration);
       animation: scale-top-to-bottom 4s ease;
       animation-delay: 500ms;
       transform-origin: top center;
@@ -71,26 +72,15 @@
       @include breakpoint(tablet_landscape) {
         position: absolute;
         top: rem(60);
-        width: rem(3);
       }
     }
 
     &__text {
-      @include monospace;
-      @include size(14);
+      @include text-decoration;
 
       position: absolute;
       top: 0;
       left: 0;
-      color: theme(text);
-
-      @include breakpoint(tablet_landscape) {
-        @include size(18);
-      }
-
-      &___em {
-        color: theme(text--em);
-      }
     }
 
     &__scroll_down {
@@ -135,7 +125,7 @@
 
     display: inline-block;
     position: relative;
-    color: theme(cta);
+    color: theme(text);
     overflow: hidden;
 
     @include breakpoint(tablet_landscape) {
@@ -161,7 +151,7 @@
     }
 
     &___colored {
-      color: theme(text);
+      color: theme(text--em);
     }
 
     code {
