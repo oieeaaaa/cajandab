@@ -54,7 +54,7 @@
 
       @include breakpoint(tablet_landscape) {
         top: rem(60);
-        left: 0.05em;
+        left: 0.15em;
         width: rem(15);
         height: rem(15);
       }
@@ -96,11 +96,16 @@
       padding: 0 rem(10);
       white-space: nowrap;
       z-index: 2;
+      transition: transform 250ms ease;
 
       @include breakpoint(tablet_landscape) {
         @include size(18 26);
 
         top: 50%;
+      }
+
+      @include true-hover {
+        transform: translateY(-100%) translateX(-50%) rotate(-90deg);
       }
     }
   }

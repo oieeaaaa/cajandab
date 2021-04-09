@@ -164,6 +164,7 @@
 
         &_button {
           @include size(14 18.34);
+          color: theme(nav-item--mobile);
         }
       }
 

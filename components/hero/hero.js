@@ -1,4 +1,5 @@
 import { ReactSVG } from "react-svg";
+import Link from "next/link";
 import TextScramble from "components/textScramble/textScramble";
 import styles from "./hero.module.scss";
 
@@ -12,9 +13,9 @@ const Hero = () => {
           <p className={styles.hero_decoration__text}>
             initialize<em>()</em>;
           </p>
-          <button className={styles.hero_decoration__scroll_down}>
-            Scroll down
-          </button>
+          <Link href="#works">
+            <a className={styles.hero_decoration__scroll_down}>Scroll down</a>
+          </Link>
         </div>
 
         <div className={styles.hero_container}>

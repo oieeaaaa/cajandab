@@ -12,12 +12,18 @@ const Header = ({ nav }) => {
 
   // callbacks
 
-  const scrollTimeout = useCallback(() =>
-    setTimeout(() => {
+  const scrollTimeout = useCallback(() => {
+    return setTimeout(() => {
+      if (
+        breakpoints[breakpoint()] < breakpoints.tabletLandscape &&
+        isNavActive
+      )
+        return;
+
       setIsScrolled(true);
       setIsNavActive(false);
-    }, 3000)
-  );
+    }, 3000);
+  }, [isNavActive]);
 
   // refs
 
@@ -26,7 +32,9 @@ const Header = ({ nav }) => {
 
   // functions
 
-  const toggleNav = () => setIsNavActive(!isNavActive);
+  const toggleNav = () => {
+    setIsNavActive(!isNavActive);
+  };
 
   const moveNavItemUnderline = (e) => {
     if (
@@ -123,8 +131,10 @@ const Header = ({ nav }) => {
     if (!nav) return;
 
     if (!isNavActive) {
+      document.body.style.overflow = "";
       nav.style.transform = "scale(0)";
     } else {
+      document.body.style.overflow = "hidden";
       nav.style.transform = "scale(1)";
     }
   }, [navRef, isNavActive]);
