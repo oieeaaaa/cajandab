@@ -1,0 +1,17 @@
+@use 'scss/functions/theme' as *;
+@use 'scss/mixins/breakpoint' as *;
+
+@mixin text-reveal($background: text) {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 0;
+  height: 1.2em;
+  animation: text-reveal 500ms ease;
+  animation-fill-mode: forwards;
+  background-color: theme($background);
+
+  @include breakpoint(tablet_landscape) {
+    height: 1.6em;
+  }
+}
