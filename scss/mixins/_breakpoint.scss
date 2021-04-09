@@ -22,14 +22,14 @@
     }
 
     // contain the content between the selected device and the next device
-    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @media screen and (min-width: $min-width) and (max-width: $max-width - 1) {
       @content;
     }
   } @else if (quote($constraint) == "upto") {
     $max-width: map-get($breakpoints, $limit);
 
     @if (validate-minmax($min-width, $max-width)) {
-      @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @media screen and (min-width: $min-width) and (max-width: $max-width - 1) {
         @content;
       }
     }

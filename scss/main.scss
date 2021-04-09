@@ -1,2 +1,15 @@
-@forward "scss/base/reset";
-@forward "scss/base/grid";
+// abstracts
+@forward "scss/abstracts/z-indices";
+@forward "scss/abstracts/animations";
+@forward "scss/abstracts/grid-settings";
+@forward "scss/abstracts/breakpoints";
+
+// functions
+@forward "scss/functions/theme";
+@forward "scss/functions/rem";
+@forward "scss/functions/breakpoint";
+
+// mixins
+@forward "scss/mixins/breakpoint";
+@forward "scss/mixins/font";
+@forward "scss/mixins/text";

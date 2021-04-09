@@ -25,3 +25,23 @@
     transform: translateY(-100%) rotate(-45deg);
   }
 }
+
+@keyframes text-reveal {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scale-top-to-bottom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
