@@ -1,0 +1,196 @@
+@use 'scss/main' as *;
+
+.hero {
+  &_grid {
+    padding-top: rem(267);
+    height: 100vh;
+    overflow: hidden;
+
+    @include breakpoint(tablet_landscape) {
+      padding-top: rem(297);
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 83.73%;
+    height: auto;
+    z-index: -1;
+
+    @include breakpoint(mobile, upto, tablet_landscape) {
+      max-width: rem(450);
+    }
+
+    @include breakpoint(tablet_landscape) {
+      width: 53vw;
+      max-width: rem(685);
+    }
+  }
+
+  &_decoration {
+    grid-column: 1 / 2;
+    position: relative;
+    padding-top: rem(26);
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 2 / 2;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      left: -0.05em;
+      width: rem(7);
+      height: rem(7);
+      border-radius: 50%;
+      background-color: theme(decoration);
+      transform: translateX(-50%);
+
+      @include breakpoint(tablet_landscape) {
+        top: rem(60);
+        left: 0.05em;
+        width: rem(15);
+        height: rem(15);
+      }
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: rem(1);
+      height: 100%;
+      background-color: theme(decoration);
+      animation: scale-top-to-bottom 4s ease;
+      animation-delay: 500ms;
+      transform-origin: top center;
+      z-index: 1;
+
+      @include breakpoint(tablet_landscape) {
+        position: absolute;
+        top: rem(60);
+        width: rem(3);
+      }
+    }
+
+    &__text {
+      @include monospace;
+      @include size(14);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: theme(text);
+
+      @include breakpoint(tablet_landscape) {
+        @include size(18);
+      }
+
+      &___em {
+        color: theme(text--em);
+      }
+    }
+
+    &__scroll_down {
+      @include sans-serif(700);
+      @include size(14 26 -0.05);
+
+      position: absolute;
+      top: rem(147);
+      transform: translateX(-50%) rotate(-90deg);
+      color: theme(cta);
+      background-color: theme(hero-scroll-down-bg);
+      text-transform: lowecase;
+      padding: 0 rem(10);
+      white-space: nowrap;
+      z-index: 2;
+
+      @include breakpoint(tablet_landscape) {
+        @include size(18 26);
+
+        top: 50%;
+      }
+    }
+  }
+
+  &_container {
+    grid-column: 2 / -1;
+    padding-top: rem(56);
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 3 / -2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &_heading {
+    --text-cover: #{theme(hero-bg)};
+
+    @include sans-serif(700);
+    @include size(18 26 -0.05);
+
+    display: inline-block;
+    position: relative;
+    color: theme(cta);
+    overflow: hidden;
+
+    @include breakpoint(tablet_landscape) {
+      @include size(36 54);
+    }
+
+    &::before,
+    &::after {
+      @include text-reveal(hero-bg);
+    }
+
+    &::before {
+      animation-delay: 500ms;
+    }
+
+    &::after {
+      top: 1.2em;
+      animation-delay: 1s;
+
+      @include breakpoint(tablet_landscape) {
+        top: 1.6em;
+      }
+    }
+
+    &___colored {
+      color: theme(text);
+    }
+
+    code {
+      @include monospace;
+    }
+
+    em {
+      @include sans-serif(400i);
+    }
+  }
+
+  &__text {
+    @include sans-serif;
+    @include size(14 26);
+
+    position: relative;
+    margin-top: rem(20);
+    color: theme(text);
+    overflow: hidden;
+
+    @include breakpoint(tablet_landscape) {
+      @include size(18 26);
+    }
+
+    &::before {
+      @include text-reveal(hero-bg);
+
+      height: 100%;
+      animation-delay: 1.5s;
+    }
+  }
+}
