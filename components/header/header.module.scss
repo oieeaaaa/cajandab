@@ -1,31 +1,34 @@
-@use "scss/functions/theme" as *;
-@use "scss/functions/rem" as *;
-@use "scss/mixins/font";
-@use "scss/mixins/breakpoint" as *;
-@forward "scss/abstracts/animations";
+@use 'scss/main' as *;
 
 .header {
   $this: &;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding-top: rem(30);
-
-  @include breakpoint(mobile, upto, tablet_landscape) {
-    display: flex;
-    justify-content: space-between;
-  }
+  z-index: $z-header;
 
   @include breakpoint(tablet_landscape) {
     padding-top: rem(50);
   }
 
+  &_container {
+    @include breakpoint(mobile, upto, tablet_landscape) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &_brand {
-    @include font.monospace;
-    @include font.size(16 20.96 -0.05);
+    @include monospace;
+    @include size(16 20.96 -0.05);
 
     color: theme(cta);
 
     @include breakpoint(tablet_landscape) {
-      @include font.size(30 39.3);
+      @include size(30 39.3);
 
       grid-column: 2 / span 4;
     }
@@ -103,10 +106,14 @@
     }
 
     &_container {
+      position: absolute;
+
       @include breakpoint(tablet_landscape) {
+        position: static;
+        display: block;
         justify-self: end;
         align-self: center;
-        grid-column: 12 / -2;
+        grid-column: 10 / -2;
         position: relative;
       }
     }
@@ -149,7 +156,7 @@
         }
 
         &_button {
-          @include font.size(14 18.34);
+          @include size(14 18.34);
         }
       }
 
@@ -168,21 +175,21 @@
 
         &:first-child::before,
         &:last-child::after {
-          @include font.monospace;
-          @include font.size(24 31.44 -0.05em);
+          @include monospace;
+          @include size(24 31.44 -0.05em);
 
           color: theme(cta);
         }
 
         &_button {
-          @include font.size(24 31.44 -0.05em);
+          @include size(24 31.44 -0.05em);
 
           color: theme(cta);
         }
       }
 
       &_button {
-        @include font.monospace;
+        @include monospace;
       }
     }
 

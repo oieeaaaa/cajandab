@@ -119,34 +119,36 @@ const Header = () => {
     <header
       className={`${styles.header} ${
         isNavActive ? styles.header___active : ""
-      } grid`}
+      }`}
       onMouseLeave={hideNavItemUnderline}
     >
-      <p className={styles.header_brand}>
-        <em className={styles.header_brand___em}>c</em>.joimee
-        <em className={styles.header_brand___em}>(</em>e
-        <em className={styles.header_brand___em}>)</em>;
-      </p>
-      <button onClick={toggleNav} className={styles.header_toggler} />
-      <div className={styles.header_list_container}>
-        <ul ref={navRef} className={styles.header_list}>
-          {routes.nav.map(({ label, selector }) => (
-            <li className={styles.header_list__item} key={selector}>
-              <button
-                className={styles.header_list__item_button}
-                onClick={() => onScrollToView(selector)}
-                onMouseOver={moveNavItemUnderline}
-                type="button"
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div
-          ref={navItemUnderlineRef}
-          className={styles.header_list__obedient_underline}
-        />
+      <div className={`${styles.header_container} grid`}>
+        <p className={styles.header_brand}>
+          <em className={styles.header_brand___em}>c</em>.joimee
+          <em className={styles.header_brand___em}>(</em>e
+          <em className={styles.header_brand___em}>)</em>;
+        </p>
+        <button onClick={toggleNav} className={styles.header_toggler} />
+        <div className={styles.header_list_container}>
+          <ul ref={navRef} className={styles.header_list}>
+            {routes.nav.map(({ label, selector }) => (
+              <li className={styles.header_list__item} key={selector}>
+                <button
+                  className={styles.header_list__item_button}
+                  onClick={() => onScrollToView(selector)}
+                  onMouseOver={moveNavItemUnderline}
+                  type="button"
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div
+            ref={navItemUnderlineRef}
+            className={styles.header_list__obedient_underline}
+          />
+        </div>
       </div>
     </header>
   );
