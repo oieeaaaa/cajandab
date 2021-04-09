@@ -1,0 +1,34 @@
+{
+  "works": [
+    {
+      "data": {
+        "category": "Pharmaceuticals",
+        "name": "Xywav",
+        "subtext": "w/ Code and Theory",
+        "href": "/",
+        "image": ""
+      }
+    },
+    {
+      "data": {
+        "category": "Health Care",
+        "name": "Commonwealth",
+        "subtext": "w/ Code and Theory",
+        "href": "/",
+        "image": ""
+      },
+      "reverse": true,
+      "horizontal": true
+    },
+    {
+      "data": {
+        "category": "E-Commerce",
+        "name": "Breathe",
+        "subtext": null,
+        "href": "/",
+        "image": ""
+      },
+      "horizontal": true
+    }
+  ]
+}
