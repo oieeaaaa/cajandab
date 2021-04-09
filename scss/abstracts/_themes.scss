@@ -16,6 +16,8 @@ $themes: (
   cta: $half-colonial-white,
   body-bg: $swamp,
   decoration: $thunderbird,
+  watermark: rgba($hippie-blue, 0.2),
+  card-bg: $swamp,
   // nav
   nav-item--mobile: $swamp,
   nav-item--active: $thunderbird,
@@ -28,7 +30,13 @@ $themes: (
       rgba(0, 14, 22, 0) 100%
     ),
   // hero
-  hero-bg: $swamp,
+  hero-bg:
+    linear-gradient(
+      180deg,
+      $swamp 0%,
+      rgba(0, 14, 22, 0.453125) 53.12%,
+      rgba(0, 14, 22, 0) 100%
+    ),
   hero-scroll-down-bg: $swamp,
   // works
   works-bg: $black-pearl,
