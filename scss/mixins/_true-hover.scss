@@ -1,0 +1,7 @@
+@mixin true-hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

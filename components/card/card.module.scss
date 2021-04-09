@@ -1,0 +1,116 @@
+@use 'scss/main' as *;
+
+.card {
+  $this: &;
+
+  display: block;
+
+  &_container {
+    @include sans-serif(700);
+
+    display: flex;
+    flex-direction: column;
+    background-color: theme(card-bg);
+    height: rem(300);
+    padding: rem(10);
+    color: theme(text);
+
+    @include breakpoint(tablet_landscape) {
+      height: rem(400);
+      padding: rem(20);
+      cursor: pointer;
+    }
+
+    #{$this}___horizontal & {
+      height: rem(180);
+
+      @include breakpoint(tablet_landscape) {
+        height: rem(248);
+      }
+    }
+
+    @include true-hover {
+      #{$this}_meta__title::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__category {
+    @include size(16 19.2);
+
+    @include breakpoint(tablet_landscape) {
+      @include size(18 21.6);
+    }
+
+    #{$this}___reverse & {
+      text-align: right;
+    }
+  }
+
+  &_meta {
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    #{$this}___reverse & {
+      align-items: flex-end;
+    }
+
+    &__title {
+      @include size(24 28.8);
+
+      position: relative;
+      align-self: flex-end;
+      display: inline-flex;
+      align-items: center;
+      color: theme(cta);
+      transform: translateX(30%);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: rem(-5);
+        width: 100%;
+        height: rem(5);
+        background-color: theme(cta);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 500ms ease;
+      }
+
+      @include breakpoint(tablet_landscape) {
+        @include size(36 43.2);
+      }
+
+      #{$this}___reverse & {
+        align-self: flex-start;
+        transform: translateX(-30%);
+      }
+
+      &___icon {
+        margin-left: rem(10);
+
+        @include breakpoint(tablet_landscape) {
+          svg {
+            width: rem(30);
+            height: rem(30);
+          }
+        }
+      }
+    }
+
+    &__subtext {
+      @include size(12 14.4);
+
+      margin-top: rem(30);
+
+      @include breakpoint(tablet_landscape) {
+        @include size(14 16.8);
+      }
+    }
+  }
+}
+

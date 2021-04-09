@@ -1,0 +1,47 @@
+@use 'scss/abstracts/animations' as *;
+@use 'scss/functions/theme' as *;
+@use 'scss/functions/rem' as *;
+@use 'scss/mixins/breakpoint' as *;
+@use 'scss/mixins/font' as *;
+
+@mixin line-decoration {
+  display: inline-block;
+  width: rem(1);
+  height: 100%;
+  background-color: theme(decoration);
+  transform-origin: top center;
+
+  @include breakpoint(tablet_landscape) {
+    width: rem(3);
+  }
+}
+
+@mixin text-decoration {
+  @include monospace;
+  @include size(14);
+
+  color: theme(text);
+
+  @include breakpoint(tablet_landscape) {
+    @include size(18);
+  }
+
+  em {
+    color: theme(text--em);
+    font-style: normal;
+  }
+}
+
+@mixin watermark-decoration {
+  font-size: calc(72 / 375 * 100vw);
+  line-height: 85.5%;
+  color: theme(watermark);
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  speak: none;
+
+  @include breakpoint(desktop) {
+    @include size(255 218.03);
+  }
+}
