@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "components/header/header";
 import Hero from "components/hero/hero";
 import Works from "components/works/works";
+import About from "components/about/about";
 
 // data
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Header nav={nav} />
       <Hero />
       <Works works={works} />
+      <About />
     </div>
   );
 }

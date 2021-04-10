@@ -1,0 +1,79 @@
+@use 'scss/main' as *;
+
+/*
+TODO:
+
+• Create a section decoration component
+
+ */
+.about {
+  background-color: theme(about-bg);
+
+  &_container {
+    position: relative;
+    overflow: hidden;
+    padding-top: rem(112);
+
+    @include breakpoint(tablet_landscape) {
+      padding-top: rem(168);
+    }
+  }
+
+  &_decoration {
+    grid-column: 1 / 2;
+    position: absolute;
+    height: 100%;
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 2 / 2;
+    }
+
+    &::before {
+      @include line-decoration;
+
+      content: "";
+      height: rem(50);
+    }
+
+    &::after {
+      @include line-decoration;
+
+      content: "";
+    }
+
+    &__text {
+      @include text-decoration;
+
+      margin-top: rem(10);
+      margin-bottom: rem(10);
+    }
+  }
+
+  &_article {
+    @include size(16 24 -0.05);
+
+    grid-column: 2 / -1;
+    color: theme(text);
+
+    @include breakpoint(tablet_landscape) {
+      @include size(18 27);
+
+      grid-column: 3 / span 9;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  &__image {
+    @include aspect-ratio(158, 162);
+
+    grid-column: 6 / -1;
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 15 / -2;
+    }
+  }
+}
+

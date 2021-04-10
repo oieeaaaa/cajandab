@@ -1,6 +1,6 @@
-import { useCallback, useState, useLayoutEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 
-const TextScramble = ({ initialText, texts }) => {
+const TextScramble = ({ initialText, texts, timeOut = 1000 }) => {
   const [scrambleCount, setScrambleCount] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
@@ -47,12 +47,12 @@ const TextScramble = ({ initialText, texts }) => {
       );
 
       setScrambleCount(0);
-    }, 1000)
+    }, timeOut)
   );
 
   // effects
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!textDisplayRef.current) return;
 
     const { current: textDisplay } = textDisplayRef;
@@ -76,4 +76,3 @@ const TextScramble = ({ initialText, texts }) => {
 };
 
 export default TextScramble;
-
