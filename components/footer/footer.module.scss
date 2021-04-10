@@ -1,0 +1,106 @@
+@use "scss/main" as *;
+
+.footer {
+  background-color: theme(footer-bg);
+
+  &_container {
+    position: relative;
+    padding-top: rem(53);
+    padding-bottom: rem(20);
+
+    @include breakpoint(tablet_landscape) {
+      padding-top: rem(115);
+      padding-bottom: rem(50);
+    }
+  }
+
+  &_decoration {
+    grid-column: 1 / 2;
+    position: absolute;
+    padding-top: rem(26);
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 2 / 2;
+    }
+
+    &::before {
+      @include line-decoration;
+
+      content: "";
+      position: absolute;
+      top: 0;
+
+      @include breakpoint(tablet_landscape) {
+        height: rem(100);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      width: rem(7);
+      height: rem(7);
+      border-radius: 50%;
+      background-color: theme(decoration);
+      transform: translateX(-50%);
+
+      @include breakpoint(tablet_landscape) {
+        top: rem(92);
+        left: 0.15em;
+        width: rem(15);
+        height: rem(15);
+      }
+    }
+
+    &__text {
+      @include text-decoration;
+
+      position: absolute;
+      top: rem(53);
+      left: 0;
+
+      @include breakpoint(tablet_landscape) {
+        top: rem(127);
+      }
+    }
+
+    &__comment {
+      @include text-decoration;
+
+      color: theme(comment);
+    }
+  }
+
+  &_socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / -2;
+    margin-top: rem(48);
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 16 / -1;
+      margin-top: 0;
+    }
+
+    &__item {
+      svg {
+        @include breakpoint(tablet_landscape) {
+          width: rem(30);
+          height: rem(30);
+        }
+      }
+    }
+
+    &__item:not(:last-child) {
+      margin-right: rem(20);
+
+      @include breakpoint(tablet_landscape) {
+        margin-right: rem(30);
+      }
+    }
+  }
+}
+

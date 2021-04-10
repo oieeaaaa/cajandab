@@ -4,11 +4,13 @@ import Hero from "components/hero/hero";
 import Works from "components/works/works";
 import About from "components/about/about";
 import Contact from "components/contact/contact";
+import Footer from "components/footer/footer";
 
 // data
 
 import { nav } from "data/routes.json";
 import { works } from "data/works.json";
+import { socials } from "data/socials.json";
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
       <Works works={works} />
       <About />
       <Contact />
+      <Footer socials={socials} />
     </div>
   );
 }

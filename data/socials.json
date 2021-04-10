@@ -1,0 +1,20 @@
+{
+  "socials": [
+    {
+      "icon": "icons/linkedin.svg",
+      "url": "#"
+    },
+    {
+      "icon": "icons/facebook.svg",
+      "url": "#"
+    },
+    {
+      "icon": "icons/instagram.svg",
+      "url": "#"
+    },
+    {
+      "icon": "icons/github.svg",
+      "url": "#"
+    }
+  ]
+}

@@ -21,6 +21,7 @@
   @include size(14);
 
   color: theme(text);
+  white-space: nowrap;
 
   @include breakpoint(tablet_landscape) {
     @include size(18);

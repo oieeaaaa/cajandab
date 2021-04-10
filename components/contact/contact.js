@@ -23,7 +23,13 @@ const Contact = () => (
         </Field>
         <div className={styles.contact_form__footer}>
           <Button variant="link">Reset</Button>
-          <Button>Send</Button>
+          <Button
+            onClick={() =>
+              alert("Oops, this is not yet working. Try again maybe tomorrow?")
+            }
+          >
+            Send
+          </Button>
         </div>
       </form>
     </div>
