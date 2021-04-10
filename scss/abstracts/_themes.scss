@@ -11,6 +11,8 @@ $black-pearl: #041923;
 
 $themes: (
   // globals
+  dark: $dark,
+  light: $light,
   text: $alto,
   text--em: $thunderbird,
   cta: $half-colonial-white,
@@ -18,6 +20,10 @@ $themes: (
   decoration: $thunderbird,
   watermark: rgba($hippie-blue, 0.2),
   card-bg: $swamp,
+  input-border: $alto,
+  input-placeholder: rgba($alto, 0.6),
+  input--active: $half-colonial-white,
+  input-fg: $alto,
   // nav
   nav-item--mobile: $swamp,
   nav-item--active: $thunderbird,

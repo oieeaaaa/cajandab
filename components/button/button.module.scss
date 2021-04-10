@@ -1,0 +1,31 @@
+@use 'scss/main' as *;
+
+.button {
+  @include sans-serif(700);
+  @include size(16 19.2 -0.05);
+
+  background: none;
+  border: rem(2) solid theme(cta);
+  height: rem(40);
+  padding: 0 rem(29);
+  color: theme(cta);
+
+  &___default {
+    transition: 250ms linear;
+    transition-property: box-shadow, color;
+
+    @include true-hover {
+      color: theme(dark);
+      box-shadow: inset 0 0 0 rem(50) theme(cta);
+    }
+  }
+
+  &___link {
+    border: none;
+
+    @include true-hover {
+      text-decoration: underline;
+    }
+  }
+}
+

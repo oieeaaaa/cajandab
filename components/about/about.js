@@ -1,14 +1,11 @@
 import TextScramble from "components/textScramble/textScramble";
+import SectionLine from "components/sectionLine/sectionLine";
 import styles from "./about.module.scss";
 
 const About = () => (
   <section id="about" className={styles.about}>
     <div className={`${styles.about_container} grid`}>
-      <div className={styles.about_decoration}>
-        <p className={styles.about_decoration__text}>
-          about<em>()</em>;
-        </p>
-      </div>
+      <SectionLine title="about" />
       <article className={styles.about_article}>
         <p>
           A guy who loves{" "}
@@ -19,16 +16,13 @@ const About = () => (
           />
           .
         </p>
-        <p>He is a very inquisitive and sometimes weird person.</p>
+        <p>He is very inquisitive and sometimes weird.</p>
         <p>
           But I kid you not, He can kick some butt with hard-work, passion, and
-          not to mention his determination to solve other people problems so he
-          can make money out of it—joke.
+          not to mention his determination to solve problems so he can get paid
+          and buy ramens.
         </p>
-        <p>
-          Hey friend, don't wanna deal with tech or design stuff? This guy can
-          do it for ya.
-        </p>
+        <p>Peace out.</p>
       </article>
       <figure className={styles.about__image}>
         <img src="images/joimee.png" alt="Joimee Tan Cajandab" />
@@ -38,4 +32,3 @@ const About = () => (
 );
 
 export default About;
-

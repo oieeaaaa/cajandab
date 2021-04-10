@@ -3,6 +3,7 @@ import Header from "components/header/header";
 import Hero from "components/hero/hero";
 import Works from "components/works/works";
 import About from "components/about/about";
+import Contact from "components/contact/contact";
 
 // data
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <Works works={works} />
       <About />
+      <Contact />
     </div>
   );
 }

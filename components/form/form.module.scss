@@ -1,0 +1,56 @@
+@use 'scss/main' as *;
+
+.form {
+  &__field {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: rem(1);
+      left: 0;
+      width: 100%;
+      height: rem(4);
+      transform: scaleX(0);
+      background-color: theme(input--active);
+      transition: transform 250ms ease;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: rem(4);
+      border: rem(1) solid theme(input-border);
+    }
+
+    @include true-hover {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &_input {
+    @include sans-serif(700);
+    @include size(16 19.2 -0.05);
+
+    color: theme(input-fg);
+    padding-bottom: rem(15);
+    width: 100%;
+    outline: none;
+
+    @include breakpoint(tablet_landscape) {
+      @include size(18 21.6);
+    }
+
+    &::placeholder {
+      color: theme(input-placeholder);
+    }
+  }
+
+  &_textarea {
+    resize: none;
+    min-height: rem(76);
+  }
+}

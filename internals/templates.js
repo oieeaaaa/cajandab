@@ -12,7 +12,8 @@ export default ${componentName};`.trim();
 
 // SCSS
 const scssTemplate = (name) =>
-  `
+  `@use "scss/main" as *;
+
 .${name} {
   background-color: papayawhip;
 }`.trim();

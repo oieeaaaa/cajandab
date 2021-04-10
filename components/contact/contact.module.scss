@@ -1,0 +1,79 @@
+@use 'scss/main' as *;
+
+.contact {
+  background-color: theme(contact-bg);
+  overflow: hidden;
+
+  &_container {
+    position: relative;
+    padding-top: rem(114);
+    padding-bottom: rem(100);
+
+    @include breakpoint(tablet_landscape) {
+      padding-top: rem(168);
+    }
+  }
+
+  &_form {
+    grid-column: 2 / -1;
+
+    @include breakpoint(tablet_landscape) {
+      grid-column: 8 / span 6;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+
+    &__heading {
+      @include size(18 21.6);
+
+      color: theme(text);
+
+      @include breakpoint(tablet_landscape) {
+        @include size(24 28.8);
+      }
+    }
+
+    &__textarea {
+      $textarea-field: &;
+
+      user-select: none;
+
+      &___placeholder {
+        @include size(16 19.2);
+        @include sans-serif;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(102);
+        color: theme(input-placeholder);
+        user-select: none;
+        pointer-events: none;
+        speak: none;
+
+        @include breakpoint(tablet_landscape) {
+          @include size(18 21.6);
+        }
+
+        strong {
+          @include sans-serif(700);
+        }
+      }
+
+      textarea:focus + &___placeholder {
+        display: none;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: flex-end;
+
+      > button:first-child {
+        margin-right: rem(10);
+      }
+    }
+  }
+}

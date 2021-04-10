@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import Card from "components/card/card";
+import SectionLine from "components/sectionLine/sectionLine";
 import styles from "./works.module.scss";
 
 const Works = ({ works }) => {
@@ -42,11 +43,7 @@ const Works = ({ works }) => {
     >
       <div className={`${styles.works_container} grid`}>
         <h3 className={styles.works__watermark}>The process</h3>
-        <div className={styles.works_decoration}>
-          <p className={styles.works_decoration__text}>
-            works<em>()</em>;
-          </p>
-        </div>
+        <SectionLine title="works" />
         <div className={styles.works_list}>
           {works.map((work) => (
             <Card

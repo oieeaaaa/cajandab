@@ -6,36 +6,6 @@
   background-color: theme(works-bg);
   overflow: hidden;
 
-  &_decoration {
-    grid-column: 1 / 2;
-    position: absolute;
-    height: 100%;
-
-    @include breakpoint(tablet_landscape) {
-      grid-column: 2 / 2;
-    }
-
-    &::before {
-      @include line-decoration;
-
-      content: "";
-      height: rem(50);
-    }
-
-    &::after {
-      @include line-decoration;
-
-      content: "";
-    }
-
-    &__text {
-      @include text-decoration;
-
-      margin-top: rem(10);
-      margin-bottom: rem(10);
-    }
-  }
-
   &_container {
     position: relative;
     padding-bottom: rem(100);
@@ -111,4 +81,3 @@
     }
   }
 }
-

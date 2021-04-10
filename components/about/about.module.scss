@@ -1,11 +1,5 @@
 @use 'scss/main' as *;
 
-/*
-TODO:
-
-• Create a section decoration component
-
- */
 .about {
   background-color: theme(about-bg);
 
@@ -16,36 +10,6 @@ TODO:
 
     @include breakpoint(tablet_landscape) {
       padding-top: rem(168);
-    }
-  }
-
-  &_decoration {
-    grid-column: 1 / 2;
-    position: absolute;
-    height: 100%;
-
-    @include breakpoint(tablet_landscape) {
-      grid-column: 2 / 2;
-    }
-
-    &::before {
-      @include line-decoration;
-
-      content: "";
-      height: rem(50);
-    }
-
-    &::after {
-      @include line-decoration;
-
-      content: "";
-    }
-
-    &__text {
-      @include text-decoration;
-
-      margin-top: rem(10);
-      margin-bottom: rem(10);
     }
   }
 
@@ -76,4 +40,3 @@ TODO:
     }
   }
 }
-
