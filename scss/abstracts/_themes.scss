@@ -41,7 +41,8 @@ $themes: (
       rgba(0, 14, 22, 0) 100%
     ),
   // hero
-  hero-bg:
+  hero-bg: $swamp,
+  hero-bg--gradient:
     linear-gradient(
       180deg,
       $swamp 0%,

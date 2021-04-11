@@ -1,7 +1,8 @@
 @use 'scss/main' as *;
 
 .hero {
-  background: theme(hero-bg);
+  background-color: theme(hero-bg);
+  background: theme(hero-bg--gradient);
   background-repeat: no-repeat;
 
   &_grid {
@@ -123,8 +124,6 @@
   }
 
   &_heading {
-    --text-cover: #{theme(hero-bg)};
-
     @include sans-serif(700);
     @include size(18 26 -0.05);
 
