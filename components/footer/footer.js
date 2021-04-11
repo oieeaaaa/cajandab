@@ -27,4 +27,3 @@ const Footer = ({ socials }) => (
 );
 
 export default Footer;
-

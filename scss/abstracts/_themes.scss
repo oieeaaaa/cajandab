@@ -20,6 +20,10 @@ $themes: (
   decoration: $thunderbird,
   watermark: rgba($hippie-blue, 0.2),
   card-bg: $swamp,
+  card-bg--shadow:
+    linear-gradient(166.78deg, rgba(0, 14, 22, 0) 9.51%, #000e16 100%),
+  card-bg--shadow---reverse:
+    linear-gradient(225deg, rgba(0, 14, 22, 0) 9.51%, #000e16 100%),
   input-border: $alto,
   input-placeholder: rgba($alto, 0.6),
   input--active: $half-colonial-white,
@@ -45,6 +49,7 @@ $themes: (
       rgba(0, 14, 22, 0) 100%
     ),
   hero-scroll-down-bg: $swamp,
+  hero-subtitle: rgba($alto, 0.6),
   // works
   works-bg: $black-pearl,
   // about

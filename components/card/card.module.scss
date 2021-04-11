@@ -8,12 +8,32 @@
   &_container {
     @include sans-serif(700);
 
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: theme(card-bg);
     height: rem(300);
     padding: rem(10);
     color: theme(text);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: theme(card-bg--shadow);
+      z-index: 2;
+
+      #{$this}___reverse & {
+        background: theme(card-bg--shadow---reverse);
+      }
+    }
+
+    > *:not(#{$this}__cover) {
+      z-index: 2;
+    }
 
     @include breakpoint(tablet_landscape) {
       height: rem(400);
@@ -32,6 +52,27 @@
     @include true-hover {
       #{$this}_meta__title::after {
         transform: scaleX(1);
+      }
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.6;
+    height: 100%;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: auto;
+
+      #{$this}___horizontal & {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
       }
     }
   }
@@ -113,4 +154,3 @@
     }
   }
 }
-

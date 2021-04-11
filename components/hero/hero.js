@@ -11,7 +11,7 @@ const Hero = () => {
       <div className={`${styles.hero_grid} grid`}>
         <div className={styles.hero_decoration}>
           <p className={styles.hero_decoration__text}>
-            initialize<em>()</em>;
+            start<em>()</em>;
           </p>
           <Link href="#works">
             <a className={styles.hero_decoration__scroll_down}>Scroll down</a>

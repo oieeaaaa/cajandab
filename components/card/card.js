@@ -19,8 +19,11 @@ const Card = ({ className, horizontal, reverse, data }) => {
 
   return (
     <Link href={data.href}>
-      <a className={classes.join(" ")}>
+      <a className={classes.join(" ")} target="_blank">
         <div className={styles.card_container}>
+          <div className={styles.card__cover}>
+            <video src={data.cover} autoPlay muted loop />
+          </div>
           <p className={styles.card__category}>{data.category}</p>
           <div className={styles.card_meta}>
             <h4 className={styles.card_meta__title}>
@@ -39,4 +42,3 @@ const Card = ({ className, horizontal, reverse, data }) => {
 };
 
 export default Card;
-

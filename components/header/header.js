@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import debounce from "lodash.debounce";
 import breakpoint, { breakpoints } from "js/utils/breakpoint";
@@ -10,21 +10,6 @@ const Header = ({ nav }) => {
   const [isNavActive, setIsNavActive] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // callbacks
-
-  const scrollTimeout = useCallback(() => {
-    return setTimeout(() => {
-      if (
-        breakpoints[breakpoint()] < breakpoints.tabletLandscape &&
-        isNavActive
-      )
-        return;
-
-      setIsScrolled(true);
-      setIsNavActive(false);
-    }, 3000);
-  }, [isNavActive]);
-
   // refs
 
   const navRef = useRef(null);
@@ -33,7 +18,18 @@ const Header = ({ nav }) => {
   // functions
 
   const toggleNav = () => {
-    setIsNavActive(!isNavActive);
+    const { current: nav } = navRef;
+    const newIsNavActiveState = !isNavActive;
+
+    if (!newIsNavActiveState) {
+      document.body.style.overflow = "";
+      nav.style.transform = "scale(0)";
+    } else {
+      document.body.style.overflow = "hidden";
+      nav.style.transform = "scale(1)";
+    }
+
+    setIsNavActive(newIsNavActiveState);
   };
 
   const moveNavItemUnderline = (e) => {
@@ -124,21 +120,6 @@ const Header = ({ nav }) => {
     nav.addEventListener("touchmove", touchMove);
   }, [navRef]);
 
-  // for nav animation
-  useEffect(() => {
-    const { current: nav } = navRef;
-
-    if (!nav) return;
-
-    if (!isNavActive) {
-      document.body.style.overflow = "";
-      nav.style.transform = "scale(0)";
-    } else {
-      document.body.style.overflow = "hidden";
-      nav.style.transform = "scale(1)";
-    }
-  }, [navRef, isNavActive]);
-
   // for scroll events
   useEffect(() => {
     let prevScrollY = window.scrollY;
@@ -146,30 +127,26 @@ const Header = ({ nav }) => {
     window.addEventListener(
       "scroll",
       debounce(() => {
-        clearTimeout(scrollTimeout);
+        const isScrolled =
+          prevScrollY < window.scrollY && window.scrollY >= window.innerHeight;
 
-        if (
-          prevScrollY < window.scrollY &&
-          window.scrollY >= window.innerHeight
-        ) {
-          scrollTimeout();
-        } else {
-          setIsScrolled(false);
-        }
+        setIsScrolled(isScrolled);
 
         prevScrollY = window.scrollY;
-      }, 100)
+      }, 300)
     );
   }, []);
 
   return (
     <header className={classes()} onMouseLeave={hideNavItemUnderline}>
       <div className={`${styles.header_container} grid`}>
-        <p className={styles.header_brand}>
-          <em className={styles.header_brand___em}>c</em>.joimee
-          <em className={styles.header_brand___em}>(</em>e
-          <em className={styles.header_brand___em}>)</em>;
-        </p>
+        <Link href="/">
+          <a className={styles.header_brand}>
+            <em className={styles.header_brand___em}>c</em>.joimee
+            <em className={styles.header_brand___em}>(</em>e
+            <em className={styles.header_brand___em}>)</em>;
+          </a>
+        </Link>
         <button onClick={toggleNav} className={styles.header_toggler} />
         <div className={styles.header_list_container}>
           <ul ref={navRef} className={styles.header_list}>

@@ -2,19 +2,19 @@
   "socials": [
     {
       "icon": "icons/linkedin.svg",
-      "url": "#"
+      "url": "https://www.linkedin.com/in/joimee-cajandab/"
     },
     {
       "icon": "icons/facebook.svg",
-      "url": "#"
+      "url": "https://www.facebook.com/joimee.cajandab.921/"
     },
     {
-      "icon": "icons/instagram.svg",
-      "url": "#"
+      "icon": "icons/medium.svg",
+      "url": "https://medium.com/@joimee.cajandab"
     },
     {
       "icon": "icons/github.svg",
-      "url": "#"
+      "url": "https://github.com/oieeaaaa"
     }
   ]
 }

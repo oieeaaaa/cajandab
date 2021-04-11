@@ -53,7 +53,7 @@
       transform: translateX(-50%);
 
       @include breakpoint(tablet_landscape) {
-        top: rem(60);
+        top: rem(50);
         left: 0.15em;
         width: rem(15);
         height: rem(15);
@@ -174,7 +174,7 @@
 
     position: relative;
     margin-top: rem(20);
-    color: theme(text);
+    color: theme(hero-subtitle);
     overflow: hidden;
 
     @include breakpoint(tablet_landscape) {

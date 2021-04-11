@@ -8,21 +8,21 @@ const About = () => (
       <SectionLine title="about" />
       <article className={styles.about_article}>
         <p>
-          A guy who loves{" "}
+          I'm just a random guy who happened to love{" "}
           <TextScramble
             initialText="coding"
-            texts={["coding", "designing", "and learning"]}
+            texts={["coding", "designing", "learning", "and building stuff"]}
             timeOut={500}
           />
           .
         </p>
-        <p>He is very inquisitive and sometimes weird.</p>
+        <p>I don't have much experience working in freelance but...</p>
         <p>
-          But I kid you not, He can kick some butt with hard-work, passion, and
-          not to mention his determination to solve problems so he can get paid
-          and buy ramens.
+          I would love to give it a try and work hard to gain that experience
+          while helping others who don't want to deal with their tech and/or
+          design problems.
         </p>
-        <p>Peace out.</p>
+        <p>— Joimee</p>
       </article>
       <figure className={styles.about__image}>
         <img src="images/joimee.png" alt="Joimee Tan Cajandab" />

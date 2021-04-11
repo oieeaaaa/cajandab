@@ -24,10 +24,10 @@
       border: rem(1) solid theme(input-border);
     }
 
-    @include true-hover {
-      &::before {
-        transform: scaleX(1);
-      }
+    &:hover::before,
+    &:focus-within::before,
+    &:focus::before {
+      transform: scaleX(1);
     }
   }
 

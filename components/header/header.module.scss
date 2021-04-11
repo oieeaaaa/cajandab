@@ -17,6 +17,11 @@
     transform: translateY(-100%);
   }
 
+  &:focus-within,
+  &:hover {
+    transform: translateY(0);
+  }
+
   @include breakpoint(tablet_landscape) {
     padding-top: rem(50);
   }

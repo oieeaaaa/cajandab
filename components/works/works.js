@@ -1,42 +1,17 @@
-import { useRef, useState, useEffect } from "react";
+import useIntersectionObserver from "js/hooks/useIntersectionObserver";
 import Card from "components/card/card";
 import SectionLine from "components/sectionLine/sectionLine";
 import styles from "./works.module.scss";
 
 const Works = ({ works }) => {
-  // refs
-
-  const worksRef = useRef(null);
-
-  // states
-
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  // effects
-
-  useEffect(() => {
-    if (!worksRef.current) return;
-
-    const { current: works } = worksRef;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-      },
-      {
-        threshold: 0.3,
-      }
-    );
-
-    observer.observe(works);
-  }, [worksRef]);
+  const [worksRef, entry] = useIntersectionObserver({ threshold: 0.3 });
 
   return (
     <section
       ref={worksRef}
       id="works"
       className={
-        isIntersecting
+        entry.isIntersected
           ? `${styles.works} ${styles.works___visible}`
           : styles.works
       }

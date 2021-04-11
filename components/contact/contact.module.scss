@@ -1,6 +1,8 @@
 @use 'scss/main' as *;
 
 .contact {
+  $this: &;
+
   background-color: theme(contact-bg);
   overflow: hidden;
 
@@ -16,6 +18,15 @@
 
   &_form {
     grid-column: 2 / -1;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: 1s linear;
+    transition-property: transform, opacity;
+
+    #{$this}___visible & {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     @include breakpoint(tablet_landscape) {
       grid-column: 8 / span 6;
@@ -26,12 +37,24 @@
     }
 
     &__heading {
+      --text-cover: #{theme(contact-bg)};
+
       @include size(18 21.6);
 
+      position: relative;
       color: theme(text);
+      overflow: hidden;
 
       @include breakpoint(tablet_landscape) {
         @include size(24 28.8);
+      }
+
+      #{$this}___visible & {
+        &::before {
+          @include text-reveal(contact-bg);
+
+          animation-delay: 500ms;
+        }
       }
     }
 
