@@ -104,6 +104,9 @@
       }
 
       svg {
+        width: rem(24);
+        height: rem(24);
+
         @include breakpoint(tablet_landscape) {
           width: rem(30);
           height: rem(30);
