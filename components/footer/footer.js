@@ -15,8 +15,8 @@ const Footer = ({ socials }) => (
       </div>
       <ul className={styles.footer_socials}>
         {socials.map(({ url, icon }) => (
-          <Link href={url} target="_blank" key={icon}>
-            <a className={styles.footer_socials__item}>
+          <Link href={url} key={icon}>
+            <a className={styles.footer_socials__item} target="_blank">
               <ReactSVG src={icon} />
             </a>
           </Link>
