@@ -37,8 +37,6 @@
     }
 
     &__heading {
-      --text-cover: #{theme(contact-bg)};
-
       @include size(18 21.6);
 
       position: relative;
