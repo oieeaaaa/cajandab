@@ -115,9 +115,9 @@ const Header = ({ nav }) => {
       nav.style.transform = `scale(1) rotate(${rotateZ}deg)`;
     };
 
-    nav.addEventListener("touchstart", touchStart);
-    nav.addEventListener("touchend", touchEnd);
-    nav.addEventListener("touchmove", touchMove);
+    nav.addEventListener("touchstart", touchStart, { passive: true });
+    nav.addEventListener("touchend", touchEnd, { passive: true });
+    nav.addEventListener("touchmove", touchMove, { passive: true });
   }, [navRef]);
 
   // for scroll events

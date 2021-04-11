@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       to: email,
       subject: "Thanks for letting me know.",
       html: `
-        <h3>Hi nice to meet you. 👋</h3>
+        <h3>Hi, nice to meet you. 👋</h3>
           <br />
           <br />
           <br />

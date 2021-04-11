@@ -9,7 +9,6 @@
     "component": "node ./internals/component.js"
   },
   "dependencies": {
-    "@sendgrid/mail": "^7.4.2",
     "lodash.debounce": "^4.0.8",
     "next": "10.1.3",
     "react": "17.0.2",
@@ -17,6 +16,7 @@
     "react-svg": "^12.1.0"
   },
   "devDependencies": {
+    "@sendgrid/mail": "^7.4.2",
     "sass": "^1.32.8"
   }
 }
