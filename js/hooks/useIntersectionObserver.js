@@ -1,8 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
 const useIntersectionObserver = (options = {}) => {
-  // refs
-
   const elementRef = useRef(null);
 
   // states
